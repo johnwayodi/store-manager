@@ -1,0 +1,100 @@
+.my-form {
+    margin: 20% auto;
+    width: 350px;
+    background-color: #B8BCAE;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.form-header{
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 100;
+    text-align: center;
+    padding-bottom: px;
+    height: 20px;
+    /*background-color: red;*/
+}
+
+#my-form-memo {
+    font-weight: 300;
+}
+
+.my-form-extra {
+    font-weight: 400;
+}
+
+.my-form-foot {
+    /*background-color:#f1f1f1;*/
+    background-color: #B8BCAE;
+}
+
+/* Input Styling */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #ffffff;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+    /*opacity: 0.8;*/
+}
+
+form button:hover {
+    background-color: #379634;
+    color: white;
+
+}
+
+span.password {
+    float: right;
+    /*padding-top: 16px;*/
+    width: 30%;
+}
+
+span.my-sign-up {
+    float: left;
+    /*padding-top: 16px;*/
+    width: 80%;
+}
+
+.my-sign-up-l {
+    float: left;
+    /*padding-top: 16px;*/
+    width: 60%;
+}
+
+.my-password-l {
+    float: right;
+    /*padding-top: 16px;*/
+    width: 40%;
+}
+
+.form-forgot{
+    /*background-color: red;*/
+    width: 100%;
+    text-align: right;
+}
+
+.form-forgot small{
+    color: blue;
+    font-weight: 500;
+}
+
+.form-forgot small:hover{
+    color: red;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: center;
+}
