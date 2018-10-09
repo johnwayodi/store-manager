@@ -6,7 +6,9 @@ html, body {
 
 /*FLEX ITEMS*/
 .nav-container, .nav-menu, .main-section,
-.sc-heading, .footer-content {
+.sc-heading, .footer-content, .dashboard-section,
+.dash-header, .dash-components, .dash-component, .dash-component-icon,
+.dash-component-title, .dash-component-help{
     display: flex;
 }
 
@@ -82,4 +84,54 @@ html, body {
     color: white;
 }
 
+/*DASHBOARD*/
+.dashboard-section {
+    flex-grow: 1;
+    flex-direction: column;
+}
 
+.dash-header {
+    justify-content: center;
+    font-weight: 100;
+    font-size: 35px;
+    padding-top: 20px;
+    height: 80px;
+}
+
+.dash-components {
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.dash-component {
+    background-color: #ACABA0;
+    margin: 10px;
+    width: 30%;
+    max-height: 180px;
+    flex-direction: column;
+}
+
+.dash-component:hover{
+    background-color: seagreen;
+    color: white;
+    border-radius: 15px;
+
+}
+
+.dash-component-icon, .dash-component-title, .dash-component-help {
+    justify-content: center;
+}
+
+.dash-component-icon {
+    padding: 10px;
+}
+
+.dash-component-title {
+    font-weight: 300;
+    font-size: 25px;
+}
+
+.dash-component-help {
+    font-weight: 500;
+    font-size: 13px;
+}
