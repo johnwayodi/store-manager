@@ -12,7 +12,7 @@ html, body {
 .products-section, .all-products-section,
 .product-item, .product-image, .product-details, .sidebar-option,
 .pd-section, .pd-item, .pd-details, .pd-header, .pd-options,
-.pd-options-1 {
+.pd-options-1, .sc-item, .item-row, .item-label, .item-value {
     display: flex;
 }
 
@@ -193,9 +193,10 @@ html, body {
     /*background-color: #212121;*/
 }
 
-.product-side-bar{
+.product-side-bar {
     background-color: #ACABA0;
 }
+
 .categories-section {
     /*background-color: red;*/
     background-color: #07020D;
@@ -241,11 +242,11 @@ html, body {
     background-color: #cccccc;
 }
 
-.product-section .form-section{
+.product-section .form-section {
     flex: 3;
 }
 
-.product-section .my-side-bar{
+.product-section .my-side-bar {
     flex: 1;
 }
 
@@ -263,4 +264,91 @@ html, body {
     background-color: #B8BCAE;
     border-radius: 25px;
     padding: 20px;
+}
+
+/* SHOPPING CART*/
+.cart-section{
+    display: flex;
+    justify-content: center;
+    flex: 3;
+}
+
+.shopping-cart-section {
+    margin: 2% auto;
+    width: 350px;
+    /*background-color: #B8BCAE;*/
+    background-color: #B8BCAE;
+    border-radius: 20px;
+    padding: 20px;
+    height: max-content;
+
+}
+
+.sc-heading {
+    font-size: 30px;
+    justify-content: center;
+    padding-bottom: 5px;
+    font-weight: 300;
+
+}
+
+.sc-item {
+    /*background-color: red;*/
+    margin: 2px;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.item-label {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.item-value {
+    flex: 2;
+    justify-content: flex-end;
+}
+
+.item-remove{
+    margin-top: 3px;
+    background-color: #5C5C5C;
+    flex: 1;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.item-remove:hover{
+    background-color: red;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.sc-total {
+    border: none;
+}
+
+.cart-final-label, .cart-final-value {
+    font-size: 25px;
+}
+
+.cart-checkout {
+    background-color: #ffffff;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    /*font-family: 'Roboto', sans-serif;*/
+    /*font-weight: 500;*/
+}
+
+.cart-checkout:hover {
+    background-color: #379634;
+    color: white;
 }
