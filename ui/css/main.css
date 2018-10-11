@@ -434,14 +434,19 @@ td {
 }
 
 /*ATTENDANT PROFILE*/
+.attendant-section {
+    background-color: white;
+}
+
 .attendant-profile {
     padding-top: 10px;
 }
-.single-record-extra .attendant-name{
+
+.single-record-extra .attendant-name {
     font-size: 40px;
     font-weight: 300;
 }
 
-.info-text{
+.info-text {
     padding-left: 10px;
 }
