@@ -13,7 +13,7 @@ html, body {
 .sc-item, .item-row, .item-label, .item-value,
 .records-section, .record-items-section, .record-item, .record-details,
 .single-record-section, .single-record-table, .single-record-extra,
-.attendant-money, .attendant-products, .attendant-sales {
+.attendant-money, .attendant-products, .attendant-sales, .search-bar-section {
     display: flex;
 }
 
@@ -267,12 +267,12 @@ html, body {
     padding: 20px;
 }
 
-.product-options{
+.product-options {
     display: flex;
 }
 
 /* SELECT CATEGORY FOR PRODUCT ADMIN*/
-#myList{
+#myList {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -287,7 +287,7 @@ html, body {
     margin-right: 5px;
 }
 
-#delete-product:hover{
+#delete-product:hover {
     background-color: red;
 }
 
@@ -477,4 +477,39 @@ td {
 
 .info-text {
     padding-left: 10px;
+}
+
+.search-bar-section {
+    flex-direction: row;
+    justify-content: center;
+    background-color: #5C5C5C;
+}
+
+.my-search-input {
+    width: 60%;
+}
+
+.my-search-button {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.my-search-button:hover {
+    background-color: #379634;
+    color: white;
+    cursor: pointer;
+}
+
+.sidebar-option a {
+    /*text-decoration: none;*/
+    /*color: #ffffff;*/
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+
 }
