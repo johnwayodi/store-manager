@@ -10,8 +10,9 @@ html, body {
 .dash-header, .dash-components, .dash-component, .dash-component-icon, .dash-component-title, .dash-component-help,
 .products-section, .all-products-section, .product-item, .product-image, .product-details,
 .sidebar-option, .pd-section, .pd-item, .pd-details, .pd-header, .pd-options, .pd-options-1,
-.sc-item, .item-row, .item-label, .item-value ,
-.records-section, .record-items-section, .record-item, .record-details{
+.sc-item, .item-row, .item-label, .item-value,
+.records-section, .record-items-section, .record-item, .record-details,
+.single-record-section, .single-record-table, .single-record-extra {
     display: flex;
 }
 
@@ -384,4 +385,49 @@ html, body {
 
 .record-details-extra {
     font-size: 14px;
+}
+
+/*RECORD DETAILS*/
+
+.single-record-section {
+    flex: 3;
+    flex-direction: column;
+
+}
+
+.single-record-table {
+    justify-content: center;
+}
+
+.single-record-extra {
+    flex-direction: column;
+}
+
+.single-record-extra div{
+    padding-top: 20px;
+    align-self: center;
+    font-size: 20px;
+}
+
+/* table styling*/
+table {
+    width: 80%;
+    border-collapse: collapse;
+}
+
+td, th {
+    height: 30px;
+}
+
+th {
+    border: none;
+    background: #615F6F;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+td {
+    border: 1px solid #CCC;
+    background: #FAFAFA;
+    text-align: center;
 }
