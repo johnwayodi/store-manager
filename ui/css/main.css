@@ -1,0 +1,85 @@
+html, body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+/*FLEX ITEMS*/
+.nav-container, .nav-menu, .main-section,
+.sc-heading, .footer-content {
+    display: flex;
+}
+
+/*NAVIGATION BAR*/
+.nav-container {
+    padding: 12px 25px;
+    /*background-color: #212121;*/
+    background-color: #07020D;
+}
+
+.nav-logo {
+    padding-left: 8px;
+    padding-top: 6px;
+}
+
+.nav-logo-text {
+    flex: max-content;
+    padding: 8px;
+    color: white;
+    font-weight: 300;
+    /*background-color: red;*/
+}
+
+.nav-menu {
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.nav-menu button {
+    background-color: #07020D;
+    color: white;
+    margin-left: 6px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 10%;
+    font-family: 'Roboto', sans-serif;
+    /*font-size: 20px;*/
+    font-weight: 400;
+}
+
+.nav-menu button:hover {
+    background-color: #379634;
+    color: white;
+    font-weight: 300;
+
+}
+
+/*MAIN CONTENT SECTION*/
+.main-section {
+    /*look into how to make this auto*/
+    min-height: 600px;
+    max-height: max-content;
+    background-color: #cccccc;
+}
+
+/*LOG IN SUB SECTION*/
+.login-section {
+    /*background-color: #212121;*/
+    background-color: #07020D;
+    justify-content: center;
+    font-weight: 100;
+}
+
+.footer-content {
+    height: 70px;
+    justify-content: center;
+    padding-top: 20px;
+    font-weight: 300;
+}
+
+.footer-section {
+    color: white;
+}
+
+
