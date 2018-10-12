@@ -10,7 +10,9 @@ html, body {
 .dash-header, .dash-components, .dash-component, .dash-component-icon,
 .dash-component-title, .dash-component-help,
 .products-section, .all-products-section,
-.product-item, .product-image, .product-details, .sidebar-option {
+.product-item, .product-image, .product-details, .sidebar-option,
+.pd-section, .pd-item, .pd-details, .pd-header, .pd-options,
+.pd-options-1 {
     display: flex;
 }
 
@@ -139,10 +141,11 @@ html, body {
 }
 
 /*PRODUCTS SUB SECTION*/
-.products-section{
+.products-section {
     flex-direction: column;
     flex: 3;
 }
+
 .all-products-section {
     justify-content: center;
     flex-wrap: wrap;
@@ -190,6 +193,9 @@ html, body {
     /*background-color: #212121;*/
 }
 
+.product-side-bar{
+    background-color: #ACABA0;
+}
 .categories-section {
     /*background-color: red;*/
     background-color: #07020D;
@@ -215,14 +221,46 @@ html, body {
 .category-items:hover {
     background-color: #379634;
     color: #07020D;
+
 }
 
 .sidebar-option {
     justify-content: center;
     border-radius: 10px;
+    font-weight: 400;
 }
 
 .sidebar-option:hover {
     background-color: #379634;
     color: #07020D;
+    cursor: pointer;
+}
+
+/*PRODUCT DETAILS*/
+.product-section {
+    background-color: #cccccc;
+}
+
+.product-section .form-section{
+    flex: 3;
+}
+
+.product-section .my-side-bar{
+    flex: 1;
+}
+
+.product-section-header {
+    color: #07020D;
+    font-size: 30px;
+    padding: 20px;
+    /*margin-bottom: 10px;*/
+    text-align: center;
+}
+
+.product-form {
+    margin: auto;
+    width: 350px;
+    background-color: #B8BCAE;
+    border-radius: 25px;
+    padding: 20px;
 }
