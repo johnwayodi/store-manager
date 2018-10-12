@@ -21,4 +21,4 @@ Both the Store Owner and the Store Attendant can perform the following operation
 ##### Store Owner
 1. View  all sale records and can filter by attendants.
 2. Add, modify and delete products.
-
+3. Create new Sale Attendant
