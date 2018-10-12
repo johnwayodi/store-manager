@@ -267,6 +267,34 @@ html, body {
     padding: 20px;
 }
 
+.product-options{
+    display: flex;
+}
+
+/* SELECT CATEGORY FOR PRODUCT ADMIN*/
+#myList{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    /*border: 1px solid #ccc;*/
+    /*border: none;*/
+    box-sizing: border-box;
+}
+
+#delete-product, #update-product {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#delete-product:hover{
+    background-color: red;
+}
+
+fieldset {
+    border: none;
+}
+
 /* SHOPPING CART*/
 .cart-section {
     display: flex;

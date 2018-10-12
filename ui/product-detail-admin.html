@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StoreManager - login</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--# NAVIGATION BAR-->
+<div class="nav-container">
+    <div class="nav-logo"><img src="images/shopping-list.png"></div>
+    <div class="nav-logo-text">STORE MANAGER</div>
+    <div class="nav-menu">
+        <button type="submit">LOG OUT</button>
+    </div>
+</div>
+
+<!--# MAIN SECTION-->
+<div class="main-section login-section product-section">
+    <div class="form-section">
+        <div class="product-section-header">Update or Delete Product</div>
+        <div class="product-form">
+            <form action="#">
+                <div class="container">
+                    <label for="pname" class="my-form-extra">Product Name:</label>
+                    <input type="text" value="Playstation 4" id="pname">
+
+                    <label for="p_price" class="my-form-extra">Price Per Unit:</label>
+                    <input type="text" value="40000" id="p_price">
+
+                    <label for="p_stock" class="my-form-extra">Stock Available:</label>
+                    <input type="text" value="40000" id="p_stock">
+
+                    <label for="p_stock_min" class="my-form-extra">Stock Minimum Allowed:</label>
+                    <input type="text" value="400" id="p_stock_min">
+
+                    <label for="myList" class="my-form-extra">Select Category:</label>
+                    <fieldset>
+                            <select id = "myList">
+                                <option value = "1">Home</option>
+                                <option value = "2">Gaming</option>
+                                <option value = "3">Office</option>
+                                <option value = "4">Furniture</option>
+                                <option value = "4">Fashion</option>
+                            </select>
+                    </fieldset>
+
+                    <div class="product-options">
+                        <button type="submit" id="update-product">Update</button>
+                        <button type="submit" id="delete-product">Delete</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="my-side-bar product-side-bar">
+        <div class="categories-section sidebar-option">
+            <div>Back to Dashboard</div>
+        </div>
+
+        <div class="categories-section sidebar-option">
+            <div>Back to Products</div>
+        </div>
+    </div>
+</div>
+<!--#FOOTER-->
+<div class="footer-content login-section footer-section">
+    <footer>
+        &copy; Copyright 2018 Store Manager
+    </footer>
+</div>
+
+</body>
+</html>
