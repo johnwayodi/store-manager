@@ -8,7 +8,9 @@ html, body {
 .nav-container, .nav-menu, .main-section,
 .sc-heading, .footer-content, .dashboard-section,
 .dash-header, .dash-components, .dash-component, .dash-component-icon,
-.dash-component-title, .dash-component-help{
+.dash-component-title, .dash-component-help,
+.products-section, .all-products-section,
+.product-item, .product-image, .product-details, .sidebar-option {
     display: flex;
 }
 
@@ -111,7 +113,7 @@ html, body {
     flex-direction: column;
 }
 
-.dash-component:hover{
+.dash-component:hover {
     background-color: seagreen;
     color: white;
     border-radius: 15px;
@@ -134,4 +136,93 @@ html, body {
 .dash-component-help {
     font-weight: 500;
     font-size: 13px;
+}
+
+/*PRODUCTS SUB SECTION*/
+.products-section{
+    flex-direction: column;
+    flex: 3;
+}
+.all-products-section {
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.product-item {
+    background-color: #ACABA0;
+    margin: 10px;
+    min-width: 40%;
+    max-width: 40%;
+    height: 100px;
+}
+
+.product-item:hover {
+    background-color: #379634;
+    color: #ffffff;
+}
+
+.product-image {
+    background-color: wheat;
+    width: 25%;
+    justify-content: center;
+}
+
+.product-details {
+    flex-direction: column;
+    padding: 5px;
+}
+
+.product-details-extra {
+    font-size: 14px;
+}
+
+.product-name {
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    resize: horizontal;
+}
+
+.my-side-bar {
+    flex: 1;
+    /*background-color: #212121;*/
+}
+
+.categories-section {
+    /*background-color: red;*/
+    background-color: #07020D;
+    color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+}
+
+.categories-title {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px #ffffff solid;
+}
+
+.category-items {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.category-items:hover {
+    background-color: #379634;
+    color: #07020D;
+}
+
+.sidebar-option {
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.sidebar-option:hover {
+    background-color: #379634;
+    color: #07020D;
 }
