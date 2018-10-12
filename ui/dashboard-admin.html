@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>StoreManager - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>StoreManager - Admin</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -12,10 +13,7 @@
     <div class="nav-logo"><img src="images/shopping-list.png"></div>
     <div class="nav-logo-text">STORE MANAGER</div>
     <div class="nav-menu">
-        <!--<div class="nav-menu-item">Profile</div>-->
-        <!--<div class="nav-menu-item">Records</div>-->
-        <button type="submit">PROFILE</button>
-        <button type="submit">LOG OUT</button>
+        <button type="submit" onclick="location.href='index.html';">LOG OUT</button>
     </div>
 </div>
 
@@ -24,17 +22,17 @@
     <div class="dashboard-section">
         <div class="dash-header">Dashboard | Admin</div>
         <div class="dash-components">
-            <div class="dash-component">
+            <div class="dash-component" onclick="location.href='products-admin.html';">
                 <div class="dash-component-icon"><img src="images/boxes.png"></div>
                 <div class="dash-component-title">Products</div>
                 <div class="dash-component-help">Manage Products.</div>
             </div>
-            <div class="dash-component">
+            <div class="dash-component" onclick="location.href='all-attendants.html';">
                 <div class="dash-component-icon"><img src="images/employee.png"></div>
                 <div class="dash-component-title">Store Attendants</div>
                 <div class="dash-component-help">Manage Store Attendants.</div>
             </div>
-            <div class="dash-component">
+            <div class="dash-component" onclick="location.href='sale-records-admin.html';">
                 <div class="dash-component-icon"><img src="images/sale-report.png"></div>
                 <div class="dash-component-title">Records</div>
                 <div class="dash-component-help">View All Sales Records.</div>
