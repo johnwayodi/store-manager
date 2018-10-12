@@ -12,7 +12,8 @@ html, body {
 .sidebar-option, .pd-section, .pd-item, .pd-details, .pd-header, .pd-options, .pd-options-1,
 .sc-item, .item-row, .item-label, .item-value,
 .records-section, .record-items-section, .record-item, .record-details,
-.single-record-section, .single-record-table, .single-record-extra {
+.single-record-section, .single-record-table, .single-record-extra,
+.attendant-money, .attendant-products, .attendant-sales {
     display: flex;
 }
 
@@ -403,7 +404,7 @@ html, body {
     flex-direction: column;
 }
 
-.single-record-extra div{
+.single-record-extra div {
     padding-top: 20px;
     align-self: center;
     font-size: 20px;
@@ -430,4 +431,22 @@ td {
     border: 1px solid #CCC;
     background: #FAFAFA;
     text-align: center;
+}
+
+/*ATTENDANT PROFILE*/
+.attendant-section {
+    background-color: white;
+}
+
+.attendant-profile {
+    padding-top: 10px;
+}
+
+.single-record-extra .attendant-name {
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.info-text {
+    padding-left: 10px;
 }
