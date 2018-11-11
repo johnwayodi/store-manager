@@ -600,6 +600,11 @@ function addToCart() {
         let cartItem = {"name": productName, "count": Number(productQuantity)};
         cartItems.push(cartItem);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        showSnackBar("product added to cart");
+        let productsPage = "products.html";
+        setTimeout(function () {
+            openNextPage(productsPage)
+        }, 3300);
     }
 
     console.log(localStorage.getItem('cartItems'));
@@ -670,4 +675,39 @@ function createShoppingCartItem(cartItem) {
         console.log(cartItems);
     });
     return item;
+}
+
+function createSale() {
+
+    let itemsToSale = JSON.parse(localStorage.getItem("cartItems"));
+    fetch(url + '/api/v2/sales', {
+        method: 'post',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        },
+        body: JSON.stringify({
+            products: itemsToSale
+        })
+    }).then(function (response) {
+        if (response.status !== 201) {
+            console.log('Looks like there was a problem. Status Code: ' +
+                response.status);
+        }
+        return response.json()
+    }).then(function (data) {
+        let message = data['message'];
+        if (message === 'Sale Record created successfully') {
+            let productsPage = "products.html";
+            showSnackBar(message);
+            localStorage.removeItem("cartItems");
+            setTimeout(function () {
+                openNextPage(productsPage)
+            }, 3300);
+        }
+        else {
+            showSnackBar(message, "error");
+        }
+        console.log(data);
+    }).catch(err => console.log(err))
 }
