@@ -1,4 +1,5 @@
-const url = 'http://127.0.0.1:5000';
+// const url = 'http://127.0.0.1:5000';
+const url = 'https://jw-store-manager-apiv2.herokuapp.com';
 let records = document.getElementById('my-users-list');
 
 function showSnackBar(message, messageType) {
