@@ -711,3 +711,67 @@ function createSale() {
         console.log(data);
     }).catch(err => console.log(err))
 }
+
+function getAllSales() {
+    let sales = document.getElementById('sales-list');
+    fetch(url + '/api/v2/sales', {
+        method: 'get',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        }
+    }).then(function (response) {
+        console.log(response.status);
+        return response.json();
+    }).then(function (data) {
+        let allSales = data['sales'];
+        allSales.forEach(function (item) {
+            let sale = createSaleItem(item);
+            sales.appendChild(sale);
+            // console.log(product);
+        });
+        console.log(data['products']);
+    }).catch(err => console.log(err))
+}
+
+function createSaleItem(saleRecordItem) {
+    let item = document.createElement('div');
+    item.classList.add('record-item');
+
+    let sDetails = document.createElement('div');
+    sDetails.classList.add('record-details');
+    item.appendChild(sDetails);
+
+    let sId = document.createElement('div');
+    sId.classList.add('record-name');
+    sId.textContent = 'Sale Id: ' + saleRecordItem['id'];
+    sDetails.appendChild(sId);
+
+    let extraDetails = document.createElement('div');
+    extraDetails.classList.add('record-details-extra');
+    sDetails.appendChild(extraDetails);
+
+    let sItems = document.createElement('div');
+    sItems.classList.add('product-price');
+    sItems.textContent = 'Total Items: ' + saleRecordItem['items'];
+    extraDetails.appendChild(sItems);
+
+    let sTotal = document.createElement('div');
+    sTotal.classList.add('product-price');
+    sTotal.textContent = 'Total Cost: ' + saleRecordItem['total'];
+    extraDetails.appendChild(sTotal);
+
+    let sAttendant = document.createElement('div');
+    sAttendant.classList.add('product-price');
+    sAttendant.textContent = 'Attendant Id: ' + saleRecordItem['attendant_id'];
+    extraDetails.appendChild(sAttendant);
+
+    item.addEventListener("click", function () {
+        localStorage.setItem('saleId', saleRecordItem['id']);
+        console.log(saleRecordItem['id']);
+        // getOneProduct();
+        document.location.href = "sale-record-detail.html";
+    });
+    return item;
+
+}
