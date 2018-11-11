@@ -430,3 +430,75 @@ function addProduct() {
     }).catch(err => console.log(err))
 
 }
+
+function getAllProducts() {
+    let products = document.getElementById('products-list');
+
+    fetch(url + '/api/v2/products', {
+        method: 'get',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        }
+    }).then(function (response) {
+        console.log(response.status);
+        return response.json();
+    }).then(function (data) {
+        let allProducts = data['products'];
+        allProducts.forEach(function (item) {
+            let product = createProductItem(item);
+            products.appendChild(product);
+            console.log(data);
+        });
+        console.log(data['products']);
+    }).catch(err => console.log(err))
+}
+
+function createProductItem(productItem) {
+    let detailsPage = undefined;
+    let item = document.createElement('div');
+    item.classList.add('product-item');
+
+    let details = document.createElement('div');
+    details.classList.add('product-details');
+    item.appendChild(details);
+
+    let pName = document.createElement('div');
+    pName.classList.add('product-name');
+    pName.textContent = productItem['name'];
+    details.appendChild(pName);
+
+    let extraDetails = document.createElement('div');
+    extraDetails.classList.add('product-details-extra');
+    details.appendChild(extraDetails);
+
+    let pPrice = document.createElement('div');
+    pPrice.classList.add('product-price');
+    pPrice.textContent = 'Price: ' + productItem['price'];
+    extraDetails.appendChild(pPrice);
+
+    let pStock = document.createElement('div');
+    pStock.classList.add('product-price');
+    pStock.textContent = 'In Stock: ' + productItem['stock'];
+    extraDetails.appendChild(pStock);
+
+    let pStockMin = document.createElement('div');
+    pStockMin.classList.add('product-price');
+    pStockMin.textContent = 'Minimum Stock: ' + productItem['min_stock'];
+    extraDetails.appendChild(pStockMin);
+
+    item.addEventListener("click", function () {
+        localStorage.setItem('productId', productItem['id']);
+        // console.log(productItem['id']);
+        // getOneProduct();
+        if (localStorage.getItem('userrole') === 'admin'){
+            detailsPage = "product-detail-admin.html"
+        }
+        else {
+            detailsPage = "product-detail.html"
+        }
+        document.location.href = detailsPage;
+    });
+    return item;
+
+}

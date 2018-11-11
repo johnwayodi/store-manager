@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="getAllProducts()">
 <!--# NAVIGATION BAR-->
 <div class="nav-container">
     <div class="nav-logo"><img src="images/shopping-list.png"></div>
@@ -29,96 +29,7 @@
                 <button type="submit" class="my-search-button">Search</button>
             </div>
         </div>
-        <div class="all-products-section">
-            <div class="product-item" onclick="location.href='product-detail-admin.html';">
-                <div class="product-image"><img src="images/shopping.png"></div>
-                <div class="product-details">
-                    <div class="product-name">PlayStation 4</div>
-                    <div class="product-details-extra">
-                        <div class="product-price">Price: 40000</div>
-                        <div class="product-price">In Stock: 30</div>
-                        <div class="product-price">Minimum Stock: 10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item" onclick="location.href='product-detail-admin.html';">
-                <div class="product-image"><img src="images/shopping.png"></div>
-                <div class="product-details">
-                    <div class="product-name">PlayStation 4</div>
-                    <div class="product-details-extra">
-                        <div class="product-price">Price: 40000</div>
-                        <div class="product-price">In Stock: 30</div>
-                        <div class="product-price">Minimum Stock: 10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item" onclick="location.href='product-detail-admin.html';">
-                <div class="product-image"><img src="images/shopping.png"></div>
-                <div class="product-details">
-                    <div class="product-name">PlayStation 4</div>
-                    <div class="product-details-extra">
-                        <div class="product-price">Price: 40000</div>
-                        <div class="product-price">In Stock: 30</div>
-                        <div class="product-price">Minimum Stock: 10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item" onclick="location.href='product-detail-admin.html';">
-                <div class="product-image"><img src="images/shopping.png"></div>
-                <div class="product-details">
-                    <div class="product-name">PlayStation 4</div>
-                    <div class="product-details-extra">
-                        <div class="product-price">Price: 40000</div>
-                        <div class="product-price">In Stock: 30</div>
-                        <div class="product-price">Minimum Stock: 10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item" onclick="location.href='product-detail-admin.html';">
-                <div class="product-image"><img src="images/shopping.png"></div>
-                <div class="product-details">
-                    <div class="product-name">PlayStation 4</div>
-                    <div class="product-details-extra">
-                        <div class="product-price">Price: 40000</div>
-                        <div class="product-price">In Stock: 30</div>
-                        <div class="product-price">Minimum Stock: 10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item" onclick="location.href='product-detail-admin.html';">
-                <div class="product-image"><img src="images/shopping.png"></div>
-                <div class="product-details">
-                    <div class="product-name">PlayStation 4</div>
-                    <div class="product-details-extra">
-                        <div class="product-price">Price: 40000</div>
-                        <div class="product-price">In Stock: 30</div>
-                        <div class="product-price">Minimum Stock: 10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item" onclick="location.href='product-detail-admin.html';">
-                <div class="product-image"><img src="images/shopping.png"></div>
-                <div class="product-details">
-                    <div class="product-name">PlayStation 4</div>
-                    <div class="product-details-extra">
-                        <div class="product-price">Price: 40000</div>
-                        <div class="product-price">In Stock: 30</div>
-                        <div class="product-price">Minimum Stock: 10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item" onclick="location.href='product-detail-admin.html';">
-                <div class="product-image"><img src="images/shopping.png"></div>
-                <div class="product-details">
-                    <div class="product-name">PlayStation 4</div>
-                    <div class="product-details-extra">
-                        <div class="product-price">Price: 40000</div>
-                        <div class="product-price">In Stock: 30</div>
-                        <div class="product-price">Minimum Stock: 10</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="all-products-section" id="products-list"></div>
     </div>
     <div class="my-side-bar">
         <div class="categories-section">
@@ -147,5 +58,6 @@
         &copy; Copyright 2018 Store Manager
     </footer>
 </div>
+<script src="js/app.js"></script>
 </body>
 </html>
