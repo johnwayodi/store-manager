@@ -775,3 +775,61 @@ function createSaleItem(saleRecordItem) {
     return item;
 
 }
+
+function getOneSale() {
+    fetch(url + '/api/v2/sales/' + localStorage.getItem('saleId'), {
+        method: 'get',
+        headers: {
+            "Content-type": "application/json; charset=utf-8",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        }
+    }).then(function (response) {
+        return response.json()
+    }).then(function (data) {
+
+        let saleIdSection = document.getElementById("sale-detail-id");
+        saleIdSection.textContent = 'Sale Record Id: ' + data['id'];
+        let totalItems = document.getElementById("sale-detail-items");
+        totalItems.textContent = 'Total Items: ' + data['items'];
+        let totalCost = document.getElementById("sale-detail-total");
+        totalCost.textContent = 'Total Cost: ' + data['total'];
+        let saleAttendant = document.getElementById("sale-detail-attendant");
+        saleAttendant.textContent = 'Attendant: ' + data['attendant_id'];
+
+        let tableBody = document.getElementById("table-body");
+        let allSaleItems = data['products'];
+        allSaleItems.forEach(function (item) {
+            let product = createSaleDetailItem(item);
+            tableBody.appendChild(product);
+            console.log(data);
+        });
+
+
+        console.log(data)
+    }).catch(err => console.log(err));
+
+}
+
+function createSaleDetailItem(saleRecordItem) {
+    let itemRow = document.createElement('tr');
+
+    let itemName = document.createElement('td');
+    itemName.textContent = saleRecordItem['name'];
+    itemRow.appendChild(itemName);
+
+    let itemPrice = document.createElement('td');
+    itemPrice.classList.add('record-name');
+    itemPrice.textContent = saleRecordItem['price'];
+    itemRow.appendChild(itemPrice);
+
+    let itemQuantity = document.createElement('td');
+    itemQuantity.classList.add('record-name');
+    itemQuantity.textContent = saleRecordItem['quantity'];
+    itemRow.appendChild(itemQuantity);
+
+    let itemCost = document.createElement('td');
+    itemCost.classList.add('record-name');
+    itemCost.textContent = saleRecordItem['cost'];
+    itemRow.appendChild(itemCost);
+    return itemRow;
+}
