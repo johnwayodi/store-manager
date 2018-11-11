@@ -223,11 +223,13 @@ function addCategory() {
         return response.json()
     }).then(function (data) {
         let message = data['message'];
-        if (message === 'category created'){
+        if (message === 'category created') {
             let categoriesPage = "categories-admin.html";
             myForm.reset();
             showSnackBar(message);
-            setTimeout(function (){openNextPage(categoriesPage)}, 3300);
+            setTimeout(function () {
+                openNextPage(categoriesPage)
+            }, 3300);
         }
         else {
             showSnackBar(message, "error");
@@ -292,7 +294,6 @@ function createCategoryItem(categoryItem) {
 
 }
 
-
 function getOneCategory() {
     let categoryId = localStorage.getItem('categoryId');
     fetch(url + '/api/v2/categories' + '/' + categoryId, {
@@ -312,4 +313,45 @@ function getOneCategory() {
         console.log(data)
     }).catch(err => console.log(err));
 
+}
+
+function updateCategory() {
+    let categoryId = localStorage.getItem('categoryId');
+    let myForm = document.getElementById("p-details-form");
+
+    let categoryName = myForm.elements["c_name"].value;
+    let categoryDescription = myForm.elements["c_desc"].value;
+
+    fetch(url + '/api/v2/categories' + '/' + categoryId, {
+        method: 'put',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        },
+        body: JSON.stringify({
+            name: categoryName,
+            description: categoryDescription
+        })
+    }).then(function (response) {
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+                response.status);
+        }
+        return response.json()
+    }).then(function (data) {
+        console.log(data);
+        let message = data['message'];
+        if (message === 'category updated successfully') {
+            let categoriesPage = "categories-admin.html";
+            myForm.reset();
+            showSnackBar(message);
+            setTimeout(function () {
+                openNextPage(categoriesPage)
+            }, 3300);
+        }
+        else {
+            showSnackBar(message, "error");
+        }
+        // document.location.href = "products-admin.html";
+    }).catch(err => console.log(err))
 }
