@@ -291,3 +291,25 @@ function createCategoryItem(categoryItem) {
     return item;
 
 }
+
+
+function getOneCategory() {
+    let categoryId = localStorage.getItem('categoryId');
+    fetch(url + '/api/v2/categories' + '/' + categoryId, {
+        method: 'get',
+        headers: {
+            "Content-type": "application/json; charset=utf-8",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        }
+    }).then(function (response) {
+        return response.json()
+    }).then(function (data) {
+
+        let categoryDetails = data['category'];
+        document.getElementById('c_name').value = categoryDetails['name'];
+        document.getElementById('c_desc').value = categoryDetails['description'];
+
+        console.log(data)
+    }).catch(err => console.log(err));
+
+}
