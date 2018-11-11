@@ -570,3 +570,32 @@ function updateProduct() {
         }
     }).catch(err => console.log(err))
 }
+
+function deleteProduct() {
+    let productId = localStorage.getItem('productId');
+    fetch(url + '/api/v2/products' + '/' + productId, {
+        method: 'delete',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        }
+    }).then(function (response) {
+        return response.json()
+    }).then(function (data) {
+        let myForm = document.getElementById("p-details-form");
+        let message = data['message'];
+        if (message === 'product deleted successfully') {
+            let productsPage = "products-admin.html";
+            myForm.reset();
+            showSnackBar(message);
+            setTimeout(function () {
+                openNextPage(productsPage)
+            }, 3300);
+        }
+        else {
+            showSnackBar(message, "error");
+        }
+        console.log(data)
+    }).catch(err => console.log(err))
+
+}
