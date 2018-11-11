@@ -1,5 +1,5 @@
 const url = 'http://127.0.0.1:5000';
-
+let records = document.getElementById('my-users-list');
 
 function showSnackBar(message, messageType) {
 
@@ -145,5 +145,56 @@ function addAttendant() {
         }
         // console.log(message);
     }).catch(err => console.log(err))
+
+}
+
+function getAllAttendants() {
+    fetch(url + '/api/v2/users', {
+        method: 'get',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        }
+    }).then(function (response) {
+        console.log(response.status);
+        return response.json();
+    }).then(function (data) {
+        let users = data['users'];
+        users.forEach(function (item) {
+            let user = createAttendantItem(item);
+            records.appendChild(user);
+            console.log(item);
+        });
+    }).catch(err => console.log(err))
+}
+
+function createAttendantItem(saleItem) {
+    let item = document.createElement('div');
+    item.classList.add('record-item');
+
+    let details = document.createElement('div');
+    details.classList.add('record-details');
+    item.appendChild(details);
+
+    let saleId = document.createElement('div');
+    saleId.classList.add('record-name');
+    saleId.textContent = saleItem['id'];
+    details.appendChild(saleId);
+
+    let extraDetails = document.createElement('div');
+    extraDetails.classList.add('record-details-extra');
+    details.appendChild(extraDetails);
+
+    let userName = document.createElement('div');
+    userName.classList.add('product-price');
+    userName.textContent = saleItem['username'];
+    extraDetails.appendChild(userName);
+
+    let dateCreated = document.createElement('div');
+    dateCreated.classList.add('product-price');
+    dateCreated.textContent = '30-12-2018';
+    extraDetails.appendChild(dateCreated);
+
+    return item;
 
 }
