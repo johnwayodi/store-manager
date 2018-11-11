@@ -41,7 +41,7 @@
                     <label for="p_quantity" class="my-form-extra">Enter the Quantity:</label>
                     <input type="number" placeholder="Enter Quantity to add to cart" id="p_quantity" required>
 
-                    <button type="button" value="Submit" id="cart-button">Add to Cart</button>
+                    <button type="button" value="Submit" onclick="addToCart()">Add to Cart</button>
                 </div>
             </form>
         </div>
@@ -56,6 +56,7 @@
             <div>Back to Products</div>
         </div>
     </div>
+    <div id="snackbar"></div>
 </div>
 <!--#FOOTER-->
 <div class="footer-content login-section footer-section">
