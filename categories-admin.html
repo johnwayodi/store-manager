@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>StoreManager - Categories</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="getAllProducts()">
+<!--# NAVIGATION BAR-->
+<div class="nav-container">
+    <div class="nav-logo"><img src="images/shopping-list.png"></div>
+    <div class="nav-logo-text">STORE MANAGER</div>
+    <div class="nav-menu">
+        <button type="submit" onclick="location.href='index.html';">LOG OUT</button>
+    </div>
+</div>
+<!--# MAIN SECTION-->
+<div class="main-section">
+    <div class="products-section">
+        <div class="dash-header">Categories</div>
+        <div class="search-bar-section">
+            <div class="my-search-input">
+                <input type="text" placeholder="Search For Category By Name..">
+            </div>
+            <div>
+                <button type="submit" class="my-search-button">Search</button>
+            </div>
+        </div>
+        <div class="all-products-section" id="categories-list">
+            <!--<div class="product-item">-->
+                <!--&lt;!&ndash;<div class="product-image"><img src="images/shopping.png"></div>&ndash;&gt;-->
+                <!--<div class="product-details">-->
+                    <!--<div class="product-name">PlayStation 4</div>-->
+                    <!--<div class="product-details-extra">-->
+                        <!--<div class="product-price">Price: 40000</div>-->
+                        <!--<div class="product-price">In Stock: 30</div>-->
+                        <!--<div class="product-price">Minimum Stock: 10</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="my-side-bar">
+        <div class="categories-section">
+            <div class="categories-title">Categories</div>
+            <div class="category-details">
+                <div class="category-items">Electronics</div>
+                <div class="category-items">Furniture</div>
+                <div class="category-items">Fashion</div>
+                <div class="category-items">Gaming</div>
+                <div class="category-items">Office</div>
+                <div class="category-items">Home Stuff</div>
+            </div>
+        </div>
+        <div class="categories-section sidebar-option" onclick="location.href='dashboard-admin.html';">
+            <div>Back to Dashboard</div>
+        </div>
+
+        <div class="categories-section sidebar-option" onclick="location.href='add-category.html';">
+            <div>Create New Category</div>
+        </div>
+    </div>
+</div>
+<!--#FOOTER-->
+<div class="footer-content login-section footer-section">
+    <footer>
+        &copy; Copyright 2018 Store Manager
+    </footer>
+</div>
+<script src="js/products.js"></script>
+</body>
+</html>

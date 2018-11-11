@@ -198,3 +198,40 @@ function createAttendantItem(saleItem) {
     return item;
 
 }
+
+function addCategory() {
+    let myForm = document.getElementById("category-form");
+
+    let categoryName = myForm.elements["c_name"].value;
+    let categoryDescription = myForm.elements["c_desc"].value;
+
+    fetch(url + '/api/v2/categories', {
+        method: 'post',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        },
+        body: JSON.stringify({
+            name: categoryName,
+            description: categoryDescription,
+        })
+    }).then(function (response) {
+        if (response.status !== 201) {
+            console.log('Looks like there was a problem. Status Code: ' +
+                response.status);
+        }
+        return response.json()
+    }).then(function (data) {
+        let message = data['message'];
+        if (message === 'category created'){
+            let categoriesPage = "categories-admin.html";
+            myForm.reset();
+            showSnackBar(message);
+            setTimeout(function (){openNextPage(categoriesPage)}, 3300);
+        }
+        else {
+            showSnackBar(message, "error");
+        }
+    }).catch(err => console.log(err))
+
+}

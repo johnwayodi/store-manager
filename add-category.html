@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>StoreManager - New Product</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--# NAVIGATION BAR-->
+<div class="nav-container">
+    <div class="nav-logo"><img src="images/shopping-list.png"></div>
+    <div class="nav-logo-text">STORE MANAGER</div>
+    <div class="nav-menu">
+        <button type="submit" onclick="location.href='index.html';">LOG OUT</button>
+    </div>
+</div>
+
+<!--# MAIN SECTION-->
+<div class="main-section login-section product-section">
+    <div class="form-section">
+        <div class="product-section-header">Create New Category</div>
+        <div class="product-form" id="add-product-form">
+            <form action="#" id="category-form">
+                <div class="container">
+                    <label for="c_name" class="my-form-extra">Category Name:</label>
+                    <input type="text" placeholder="Enter Name of Category" id="c_name">
+
+                    <label for="c_desc" class="my-form-extra">Category Description:</label>
+                    <input type="text" placeholder="Enter Category Description" id="c_desc">
+                    <div class="product-options">
+                        <button type="button" value="Submit" onclick="addCategory()">Create Category</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="my-side-bar product-side-bar">
+        <div class="categories-section sidebar-option" onclick="location.href='dashboard-admin.html';">
+            <div>Back to Dashboard</div>
+        </div>
+
+        <div class="categories-section sidebar-option" onclick="location.href='categories-admin.html';">
+            <div>Back to Categories</div>
+        </div>
+    </div>
+    <div id="snackbar"></div>
+</div>
+<!--#FOOTER-->
+<div class="footer-content login-section footer-section">
+    <footer>
+        &copy; Copyright 2018 Store Manager
+    </footer>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
