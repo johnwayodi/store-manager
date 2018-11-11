@@ -23,7 +23,7 @@
     <div class="form-section">
         <div class="product-section-header">Create Store Attendant</div>
         <div class="product-form">
-            <form action="#">
+            <form action="#" id="form2">
                 <div class="container">
                     <label for="attendant_name" class="my-form-extra">Attendant Username:</label>
                     <input type="text" id="attendant_name">
@@ -36,7 +36,7 @@
 
 
                     <div class="product-options">
-                        <button type="submit" id="create-attendant">Create Attendant</button>
+                        <button onclick="addAttendant()">Create Attendant</button>
                     </div>
                 </div>
             </form>
@@ -52,6 +52,7 @@
             <div>Back to Attendants</div>
         </div>
     </div>
+    <div id="snackbar"></div>
 </div>
 <!--#FOOTER-->
 <div class="footer-content login-section footer-section">
@@ -59,6 +60,6 @@
         &copy; Copyright 2018 Store Manager
     </footer>
 </div>
-
+<script src="js/app.js"></script>
 </body>
 </html>

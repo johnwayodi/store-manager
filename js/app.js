@@ -108,3 +108,42 @@ function loginUser() {
     }).catch(err => console.log(err))
 
 }
+
+function addAttendant() {
+    let myForm = document.getElementById("form2");
+
+    let uName = myForm.elements["attendant_name"].value;
+    let uPass = myForm.elements["attendant_pass"].value;
+    fetch(url + '/api/v2/users', {
+        method: 'post',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        },
+        body: JSON.stringify({
+            username: uName,
+            password: uPass
+        })
+    }).then(function (response) {
+        if (response.status !== 201) {
+            console.log('Looks like there was a problem. Status Code: ' +
+                response.status);
+        }
+        return response.json()
+    }).then(function (data) {
+        console.log();
+        let message = data['message'];
+        if (message === 'attendant created successfully') {
+            let attendantsPage = "all-attendants.html";
+            showSnackBar(data['message']);
+            setTimeout(function () {
+                openNextPage(attendantsPage)
+            }, 3300);
+        }
+        else {
+            showSnackBar(message, "error");
+        }
+        // console.log(message);
+    }).catch(err => console.log(err))
+
+}
