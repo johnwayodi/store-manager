@@ -489,8 +489,6 @@ function createProductItem(productItem) {
 
     item.addEventListener("click", function () {
         localStorage.setItem('productId', productItem['id']);
-        // console.log(productItem['id']);
-        // getOneProduct();
         if (localStorage.getItem('userrole') === 'admin'){
             detailsPage = "product-detail-admin.html"
         }
@@ -526,4 +524,49 @@ function getOneProduct() {
         console.log(data)
     }).catch(err => console.log(err));
 
+}
+
+function updateProduct() {
+    let productId = localStorage.getItem('productId');
+    let myForm = document.getElementById("p-details-form");
+
+    let productName = myForm.elements["p_name"].value;
+    let productDescription = myForm.elements["p_desc"].value;
+    let productPrice = myForm.elements["p_price"].value;
+    let productStock = myForm.elements["p_stock"].value;
+    let productStockMin = myForm.elements["p_stock_min"].value;
+    let productCategory = myForm.elements["p_category"].value;
+
+    fetch(url + '/api/v2/products' + '/' + productId, {
+        method: 'put',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        },
+        body: JSON.stringify({
+            name: productName,
+            price: Number(productPrice),
+            description: productDescription,
+            category: productCategory,
+            stock: Number(productStock),
+            min_stock: Number(productStockMin)
+        })
+    }).then(function (response) {
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+                response.status);
+        }
+        return response.json()
+    }).then(function (data) {
+        console.log(data);
+        let message = data['message'];
+        if (message === 'product updated successfully'){
+            let productsPage = "products-admin.html";
+            showSnackBar(message);
+            setTimeout(function (){openNextPage(productsPage)}, 3300);
+        }
+        else {
+            showSnackBar(message, "error");
+        }
+    }).catch(err => console.log(err))
 }
