@@ -502,3 +502,28 @@ function createProductItem(productItem) {
     return item;
 
 }
+
+function getOneProduct() {
+    let productId = localStorage.getItem('productId');
+    fetch(url + '/api/v2/products' + '/' + productId, {
+        method: 'get',
+        headers: {
+            "Content-type": "application/json; charset=utf-8",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        }
+    }).then(function (response) {
+        return response.json()
+    }).then(function (data) {
+
+        let productDetails = data['product'];
+        document.getElementById('p_name').value = productDetails['name'];
+        document.getElementById('p_price').value = productDetails['price'];
+        document.getElementById('p_stock').value = productDetails['stock'];
+        document.getElementById('p_stock_min').value = productDetails['min_stock'];
+        document.getElementById('p_desc').value = productDetails['description'];
+        document.getElementById('p_category').value = productDetails['category'];
+
+        console.log(data)
+    }).catch(err => console.log(err));
+
+}

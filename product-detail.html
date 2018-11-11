@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="getOneProduct()">
 <!--# NAVIGATION BAR-->
 <div class="nav-container">
     <div class="nav-logo"><img src="images/shopping-list.png"></div>
@@ -24,10 +24,10 @@
     <div class="form-section">
         <div class="product-section-header">Product Details</div>
         <div class="product-form">
-            <form action="#">
+            <form action="#" id="p-details-form">
                 <div class="container">
-                    <label for="pname" class="my-form-extra">Product Name:</label>
-                    <input type="text" value="Playstation 4" id="pname" readonly>
+                    <label for="p_name" class="my-form-extra">Product Name:</label>
+                    <input type="text" value="Playstation 4" id="p_name" readonly>
 
                     <label for="p_price" class="my-form-extra">Price Per Unit:</label>
                     <input type="text" value="40000" id="p_price" readonly>
@@ -41,7 +41,7 @@
                     <label for="p_quantity" class="my-form-extra">Enter the Quantity:</label>
                     <input type="number" placeholder="Enter Quantity to add to cart" id="p_quantity" required>
 
-                    <button type="submit">Add to Cart</button>
+                    <button type="button" value="Submit" id="cart-button">Add to Cart</button>
                 </div>
             </form>
         </div>
@@ -63,6 +63,6 @@
         &copy; Copyright 2018 Store Manager
     </footer>
 </div>
-
+<script src="js/app.js"></script>
 </body>
 </html>

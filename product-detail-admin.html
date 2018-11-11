@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="getOneProduct()">
 <!--# NAVIGATION BAR-->
 <div class="nav-container">
     <div class="nav-logo"><img src="images/shopping-list.png"></div>
@@ -23,10 +23,13 @@
     <div class="form-section">
         <div class="product-section-header">Update or Delete Product</div>
         <div class="product-form">
-            <form action="#">
+            <form action="#" id="p-details-form">
                 <div class="container">
-                    <label for="pname" class="my-form-extra">Product Name:</label>
-                    <input type="text" value="Playstation 4" id="pname">
+                    <label for="p_name" class="my-form-extra">Product Name:</label>
+                    <input type="text" value="Playstation 4" id="p_name">
+
+                    <label for="p_desc" class="my-form-extra">Product Description:</label>
+                    <input type="text" value="Playstation 4" id="p_desc">
 
                     <label for="p_price" class="my-form-extra">Price Per Unit:</label>
                     <input type="text" value="40000" id="p_price">
@@ -37,20 +40,11 @@
                     <label for="p_stock_min" class="my-form-extra">Stock Minimum Allowed:</label>
                     <input type="text" value="400" id="p_stock_min">
 
-                    <label for="myList" class="my-form-extra">Select Category:</label>
-                    <fieldset>
-                            <select id = "myList">
-                                <option value = "1">Home</option>
-                                <option value = "2">Gaming</option>
-                                <option value = "3">Office</option>
-                                <option value = "4">Furniture</option>
-                                <option value = "4">Fashion</option>
-                            </select>
-                    </fieldset>
-
+                    <label for="p_category" class="my-form-extra">Category:</label>
+                    <input type="text" value="400" id="p_category">
                     <div class="product-options">
-                        <button type="submit" id="update-product">Update</button>
-                        <button type="submit" id="delete-product">Delete</button>
+                        <button type="button" value="Submit">Update</button>
+                        <button type="button" value="Submit">Delete</button>
                     </div>
                 </div>
             </form>
@@ -73,6 +67,6 @@
         &copy; Copyright 2018 Store Manager
     </footer>
 </div>
-
+<script src="js/app.js"></script>
 </body>
 </html>
