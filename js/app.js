@@ -235,3 +235,59 @@ function addCategory() {
     }).catch(err => console.log(err))
 
 }
+
+function getAllCategories() {
+    let products = document.getElementById('categories-list');
+
+    fetch(url + '/api/v2/categories', {
+        method: 'get',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        }
+    }).then(function (response) {
+        console.log(response.status);
+        return response.json();
+    }).then(function (data) {
+        let allCategories = data['categories'];
+        allCategories.forEach(function (item) {
+            let product = createCategoryItem(item);
+            products.appendChild(product);
+            console.log(data);
+        });
+        console.log(data);
+    }).catch(err => console.log(err))
+}
+
+function createCategoryItem(categoryItem) {
+    let detailsPage = undefined;
+    let item = document.createElement('div');
+    item.classList.add('product-item');
+
+    let details = document.createElement('div');
+    details.classList.add('product-details');
+    item.appendChild(details);
+
+    let pName = document.createElement('div');
+    pName.classList.add('product-name');
+    pName.textContent = categoryItem['name'];
+    details.appendChild(pName);
+
+    let extraDetails = document.createElement('div');
+    extraDetails.classList.add('product-details-extra');
+    details.appendChild(extraDetails);
+
+    let pPrice = document.createElement('div');
+    pPrice.classList.add('product-price');
+    pPrice.textContent = 'Description: ' + categoryItem['description'];
+    extraDetails.appendChild(pPrice);
+
+
+    item.addEventListener("click", function () {
+        localStorage.setItem('categoryId', categoryItem['id']);
+        detailsPage = "category-detail.html";
+        document.location.href = detailsPage;
+    });
+    return item;
+
+}
