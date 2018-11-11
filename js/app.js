@@ -52,7 +52,6 @@ function registerAdmin() {
             showSnackBar(message, "error");
         }
     }).catch(err => console.log(err))
-
 }
 
 function loginUser() {
@@ -104,9 +103,7 @@ function loginUser() {
             document.getElementById("login-button").disabled = false;
             console.log(message);
         }
-
     }).catch(err => console.log(err))
-
 }
 
 function addAttendant() {
@@ -145,7 +142,6 @@ function addAttendant() {
         }
         // console.log(message);
     }).catch(err => console.log(err))
-
 }
 
 function getAllAttendants() {
@@ -194,9 +190,7 @@ function createAttendantItem(saleItem) {
     dateCreated.classList.add('product-price');
     dateCreated.textContent = '30-12-2018';
     extraDetails.appendChild(dateCreated);
-
     return item;
-
 }
 
 function addCategory() {
@@ -235,7 +229,6 @@ function addCategory() {
             showSnackBar(message, "error");
         }
     }).catch(err => console.log(err))
-
 }
 
 function getAllCategories() {
@@ -291,7 +284,6 @@ function createCategoryItem(categoryItem) {
         document.location.href = detailsPage;
     });
     return item;
-
 }
 
 function getOneCategory() {
@@ -312,7 +304,6 @@ function getOneCategory() {
 
         console.log(data)
     }).catch(err => console.log(err));
-
 }
 
 function updateCategory() {
@@ -382,7 +373,6 @@ function deleteCategory() {
         }
         console.log(data)
     }).catch(err => console.log(err));
-
 }
 
 function addProduct() {
@@ -428,7 +418,6 @@ function addProduct() {
         }
         // console.log(message);
     }).catch(err => console.log(err))
-
 }
 
 function getAllProducts() {
@@ -498,7 +487,6 @@ function createProductItem(productItem) {
         document.location.href = detailsPage;
     });
     return item;
-
 }
 
 function getOneProduct() {
@@ -523,7 +511,6 @@ function getOneProduct() {
 
         console.log(data)
     }).catch(err => console.log(err));
-
 }
 
 function updateProduct() {
@@ -597,5 +584,90 @@ function deleteProduct() {
         }
         console.log(data)
     }).catch(err => console.log(err))
+}
 
+function addToCart() {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+    if (cartItems == null) cartItems = [];
+    let myForm = document.getElementById("p-details-form");
+    let productName = myForm.elements["p_name"].value;
+    let productQuantity = myForm.elements["p_quantity"].value;
+    if (productQuantity <= 0){
+        let message = "please enter a value greater than zero";
+        showSnackBar(message, "error");
+    }
+    else {
+        let cartItem = {"name": productName, "count": Number(productQuantity)};
+        cartItems.push(cartItem);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+
+    console.log(localStorage.getItem('cartItems'));
+}
+
+function loadShoppingCart() {
+    let shoppingCart = document.getElementById("s-cart-section");
+    let saleButton = document.getElementById("sale-button-section");
+    let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    cartItems.forEach(function (item) {
+        let cartItem = createShoppingCartItem(item);
+        shoppingCart.appendChild(cartItem);
+
+        saleButton.parentNode.insertBefore(cartItem, saleButton);
+    });
+    console.log(cartItems);
+}
+
+function createShoppingCartItem(cartItem) {
+    let item = document.createElement('div');
+    item.classList.add('sc-item');
+
+    let nameSection = document.createElement('div');
+    nameSection.classList.add('item-row');
+    item.appendChild(nameSection);
+
+    let nameLabel = document.createElement('div');
+    nameLabel.classList.add('item-label');
+    nameLabel.textContent = 'Product Name:';
+    nameSection.appendChild(nameLabel);
+
+    let nameValue = document.createElement('div');
+    nameValue.classList.add('item-value');
+    nameValue.textContent = cartItem['name'];
+    nameSection.appendChild(nameValue);
+
+    let quantitySection = document.createElement('div');
+    quantitySection.classList.add('item-row');
+    item.appendChild(quantitySection);
+
+    let quantityLabel = document.createElement('div');
+    quantityLabel.classList.add('item-label');
+    quantityLabel.textContent = 'Quantity:';
+    quantitySection.appendChild(quantityLabel);
+
+    let quantityValue = document.createElement('div');
+    quantityValue.classList.add('item-value');
+    quantityValue.textContent = cartItem['count'];
+    quantitySection.appendChild(quantityValue);
+
+    let removeSection = document.createElement('div');
+    removeSection.classList.add('item-row');
+    item.appendChild(removeSection);
+
+    let removeValue = document.createElement('div');
+    removeValue.classList.add('item-remove');
+    removeValue.textContent = 'Remove';
+    removeSection.appendChild(removeValue);
+
+    removeSection.addEventListener("click", function () {
+        let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+        let cartItemToRemove = JSON.parse(JSON.stringify({"name": cartItem['name'], "count": cartItem['count']}));
+        if (cartItems == null) cartItems = [];
+        let itemIndex = cartItems.indexOf(cartItemToRemove);
+        cartItems.splice(itemIndex, 1);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        location.reload();
+        console.log(cartItems);
+    });
+    return item;
 }
