@@ -355,3 +355,32 @@ function updateCategory() {
         // document.location.href = "products-admin.html";
     }).catch(err => console.log(err))
 }
+
+function deleteCategory() {
+    let categoryId = localStorage.getItem('categoryId');
+    fetch(url + '/api/v2/categories' + '/' + categoryId, {
+        method: 'delete',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        }
+    }).then(function (response) {
+        return response.json()
+    }).then(function (data) {
+        let myForm = document.getElementById("p-details-form");
+        let message = data['message'];
+        if (message === 'category deleted successfully') {
+            let categoriesPage = "categories-admin.html";
+            myForm.reset();
+            showSnackBar(message);
+            setTimeout(function () {
+                openNextPage(categoriesPage)
+            }, 3300);
+        }
+        else {
+            showSnackBar(message, "error");
+        }
+        console.log(data)
+    }).catch(err => console.log(err));
+
+}
