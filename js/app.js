@@ -384,3 +384,49 @@ function deleteCategory() {
     }).catch(err => console.log(err));
 
 }
+
+function addProduct() {
+    let myForm = document.getElementById("product-form");
+
+    let productName = myForm.elements["p_name"].value;
+    let productDescription = myForm.elements["p_desc"].value;
+    let productPrice = myForm.elements["p_price"].value;
+    let productStock = myForm.elements["p_stock"].value;
+    let productStockMin = myForm.elements["p_stock_min"].value;
+    let productCategory = myForm.elements["p_category"].value;
+
+    fetch(url + '/api/v2/products', {
+        method: 'post',
+        headers: {
+            "Content-type": "application/json;",
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        },
+        body: JSON.stringify({
+            name: productName,
+            price: Number(productPrice),
+            description: productDescription,
+            category: productCategory,
+            stock: Number(productStock),
+            min_stock: Number(productStockMin)
+        })
+    }).then(function (response) {
+        if (response.status !== 201) {
+            console.log('Looks like there was a problem. Status Code: ' +
+                response.status);
+        }
+        return response.json()
+    }).then(function (data) {
+        // console.log(data);
+        let message = data['message'];
+        if (message === 'product created'){
+            let productsPage = "products-admin.html";
+            showSnackBar(message);
+            setTimeout(function (){openNextPage(productsPage)}, 3300);
+        }
+        else {
+            showSnackBar(message, "error");
+        }
+        // console.log(message);
+    }).catch(err => console.log(err))
+
+}
