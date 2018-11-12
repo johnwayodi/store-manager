@@ -1,6 +1,5 @@
 // const url = 'http://127.0.0.1:5000';
 const url = 'https://jw-store-manager-apiv2.herokuapp.com';
-let records = document.getElementById('my-users-list');
 
 function showSnackBar(message, messageType) {
 
@@ -146,6 +145,7 @@ function addAttendant() {
 }
 
 function getAllAttendants() {
+    let records = document.getElementById('my-users-list');
     fetch(url + '/api/v2/users', {
         method: 'get',
         headers: {
@@ -409,10 +409,12 @@ function addProduct() {
     }).then(function (data) {
         // console.log(data);
         let message = data['message'];
-        if (message === 'product created'){
+        if (message === 'product created') {
             let productsPage = "products-admin.html";
             showSnackBar(message);
-            setTimeout(function (){openNextPage(productsPage)}, 3300);
+            setTimeout(function () {
+                openNextPage(productsPage)
+            }, 3300);
         }
         else {
             showSnackBar(message, "error");
@@ -479,7 +481,7 @@ function createProductItem(productItem) {
 
     item.addEventListener("click", function () {
         localStorage.setItem('productId', productItem['id']);
-        if (localStorage.getItem('userrole') === 'admin'){
+        if (localStorage.getItem('userrole') === 'admin') {
             detailsPage = "product-detail-admin.html"
         }
         else {
@@ -548,10 +550,12 @@ function updateProduct() {
     }).then(function (data) {
         console.log(data);
         let message = data['message'];
-        if (message === 'product updated successfully'){
+        if (message === 'product updated successfully') {
             let productsPage = "products-admin.html";
             showSnackBar(message);
-            setTimeout(function (){openNextPage(productsPage)}, 3300);
+            setTimeout(function () {
+                openNextPage(productsPage)
+            }, 3300);
         }
         else {
             showSnackBar(message, "error");
@@ -593,7 +597,7 @@ function addToCart() {
     let myForm = document.getElementById("p-details-form");
     let productName = myForm.elements["p_name"].value;
     let productQuantity = myForm.elements["p_quantity"].value;
-    if (productQuantity <= 0){
+    if (productQuantity <= 0) {
         let message = "please enter a value greater than zero";
         showSnackBar(message, "error");
     }
@@ -834,3 +838,7 @@ function createSaleDetailItem(saleRecordItem) {
     itemRow.appendChild(itemCost);
     return itemRow;
 }
+
+module.exports = {registerAdmin, loginUser, getAllAttendants, addAttendant, addToCart,
+    deleteProduct, updateProduct, updateCategory, addCategory, addProduct,
+    deleteCategory, deleteProduct, updateCategory, updateProduct};

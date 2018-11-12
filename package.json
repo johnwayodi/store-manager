@@ -1,0 +1,24 @@
+{
+  "name": "sm-ui-final",
+  "version": "2.0.0",
+  "description": "An application that helps a Store Manager to run a single shop and manage Store attendants.",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnwayodi/store-manager.git"
+  },
+  "author": "john wayodi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnwayodi/store-manager/issues"
+  },
+  "homepage": "https://github.com/johnwayodi/store-manager#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "mocha-jsdom": "^2.0.0"
+  }
+}
