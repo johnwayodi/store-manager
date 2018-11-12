@@ -409,10 +409,12 @@ function addProduct() {
     }).then(function (data) {
         // console.log(data);
         let message = data['message'];
-        if (message === 'product created'){
+        if (message === 'product created') {
             let productsPage = "products-admin.html";
             showSnackBar(message);
-            setTimeout(function (){openNextPage(productsPage)}, 3300);
+            setTimeout(function () {
+                openNextPage(productsPage)
+            }, 3300);
         }
         else {
             showSnackBar(message, "error");
@@ -479,7 +481,7 @@ function createProductItem(productItem) {
 
     item.addEventListener("click", function () {
         localStorage.setItem('productId', productItem['id']);
-        if (localStorage.getItem('userrole') === 'admin'){
+        if (localStorage.getItem('userrole') === 'admin') {
             detailsPage = "product-detail-admin.html"
         }
         else {
@@ -548,10 +550,12 @@ function updateProduct() {
     }).then(function (data) {
         console.log(data);
         let message = data['message'];
-        if (message === 'product updated successfully'){
+        if (message === 'product updated successfully') {
             let productsPage = "products-admin.html";
             showSnackBar(message);
-            setTimeout(function (){openNextPage(productsPage)}, 3300);
+            setTimeout(function () {
+                openNextPage(productsPage)
+            }, 3300);
         }
         else {
             showSnackBar(message, "error");
@@ -593,7 +597,7 @@ function addToCart() {
     let myForm = document.getElementById("p-details-form");
     let productName = myForm.elements["p_name"].value;
     let productQuantity = myForm.elements["p_quantity"].value;
-    if (productQuantity <= 0){
+    if (productQuantity <= 0) {
         let message = "please enter a value greater than zero";
         showSnackBar(message, "error");
     }
@@ -836,21 +840,11 @@ function createSaleDetailItem(saleRecordItem) {
 }
 
 function logoutUser() {
-    document.getElementById("login-button").disabled = true;
-    let myForm = document.getElementById("form1");
-
-    let uName = myForm.elements["username"].value;
-    let uPass = myForm.elements["password"].value;
-    let dashboard = undefined;
-    fetch(url + '/auth/login', {
+    fetch(url + '/auth/logout', {
         method: 'post',
         headers: {
-            "Content-type": "application/json; charset=utf-8"
-        },
-        body: JSON.stringify({
-            username: uName,
-            password: uPass
-        })
+            "Authorization": "Bearer " + localStorage.getItem('authtoken')
+        }
     }).then(function (response) {
         if (response.status !== 200) {
             console.log('Looks like there was a problem. Status Code: ' +
@@ -859,30 +853,18 @@ function logoutUser() {
         return response.json()
     }).then(function (data) {
         let message = data.message;
-        if (message === 'login successful') {
-            let role = data['user_role'];
-            let token = data['access_token'];
-            localStorage.setItem('userrole', role);
-            localStorage.setItem('authtoken', token);
-            console.log(token);
-            console.log(role);
-            if (role === 'admin') {
-                dashboard = "dashboard-admin.html";
-            }
-            if (role === 'attendant') {
-                dashboard = "dashboard-attendant.html"
-            }
-            myForm.reset();
+        if (message === 'logout successful') {
+            localStorage.clear();
             showSnackBar(message);
 
+            let homepage = "index.html";
             setTimeout(function () {
-                openNextPage(dashboard)
+                openNextPage(homepage)
             }, 3300);
         }
         else {
             showSnackBar(data['message'], "error");
             document.getElementById("login-button").disabled = false;
-            console.log(message);
         }
     }).catch(err => console.log(err))
 }
