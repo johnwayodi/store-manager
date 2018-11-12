@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="getAllSales()">
 <!--# NAVIGATION BAR-->
 <div class="nav-container">
     <div class="nav-logo"><img src="images/shopping-list.png"></div>
     <div class="nav-logo-text">STORE MANAGER</div>
     <div class="nav-menu">
-        <button onclick="location.href='index.html';">LOG OUT</button>
+        <button type="button" value="Submit" onclick="logoutUser()">LOG OUT</button>
     </div>
 </div>
 
@@ -29,96 +29,7 @@
                 <button type="submit" class="my-search-button">Filter</button>
             </div>
         </div>
-        <div class="record-items-section">
-            <div class="record-item">
-                <div class="record-details">
-                    <div class="record-name">Sale Record ID</div>
-                    <div class="record-details-extra">
-                        <div class="product-price">Total Cost: 115000</div>
-                        <div class="product-price">Total Items: 3</div>
-                        <div class="product-price">Date: 30-12-2018</div>
-                        <div class="product-price">Attendant: John Quest</div>
-                    </div>
-                </div>
-            </div>
-            <div class="record-item">
-                <div class="record-details">
-                    <div class="record-name">Sale Record ID</div>
-                    <div class="record-details-extra">
-                        <div class="product-price">Total Cost: 115000</div>
-                        <div class="product-price">Total Items: 3</div>
-                        <div class="product-price">Date: 30-12-2018</div>
-                        <div class="product-price">Attendant: Mr Bancroft</div>
-                    </div>
-                </div>
-            </div>
-            <div class="record-item">
-                <div class="record-details">
-                    <div class="record-name">Sale Record ID</div>
-                    <div class="record-details-extra">
-                        <div class="product-price">Total Cost: 115000</div>
-                        <div class="product-price">Total Items: 3</div>
-                        <div class="product-price">Date: 30-12-2018</div>
-                        <div class="product-price">Attendant: Jack Reacher</div>
-                    </div>
-                </div>
-            </div>
-            <div class="record-item">
-                <div class="record-details">
-                    <div class="record-name">Sale Record ID</div>
-                    <div class="record-details-extra">
-                        <div class="product-price">Total Cost: 115000</div>
-                        <div class="product-price">Total Items: 3</div>
-                        <div class="product-price">Date: 30-12-2018</div>
-                        <div class="product-price">Attendant: John Quest</div>
-                    </div>
-                </div>
-            </div>
-            <div class="record-item">
-                <div class="record-details">
-                    <div class="record-name">Sale Record ID</div>
-                    <div class="record-details-extra">
-                        <div class="product-price">Total Cost: 115000</div>
-                        <div class="product-price">Total Items: 3</div>
-                        <div class="product-price">Date: 30-12-2018</div>
-                        <div class="product-price">Attendant: Grace Okko</div>
-                    </div>
-                </div>
-            </div>
-            <div class="record-item">
-                <div class="record-details">
-                    <div class="record-name">Sale Record ID</div>
-                    <div class="record-details-extra">
-                        <div class="product-price">Total Cost: 115000</div>
-                        <div class="product-price">Total Items: 3</div>
-                        <div class="product-price">Date: 30-12-2018</div>
-                        <div class="product-price">Attendant: Ryan Tukoi</div>
-                    </div>
-                </div>
-            </div>
-            <div class="record-item">
-                <div class="record-details">
-                    <div class="record-name">Sale Record ID</div>
-                    <div class="record-details-extra">
-                        <div class="product-price">Total Cost: 115000</div>
-                        <div class="product-price">Total Items: 3</div>
-                        <div class="product-price">Date: 30-12-2018</div>
-                        <div class="product-price">Attendant: John Quest</div>
-                    </div>
-                </div>
-            </div>
-            <div class="record-item">
-                <div class="record-details">
-                    <div class="record-name">Sale Record ID</div>
-                    <div class="record-details-extra">
-                        <div class="product-price">Total Cost: 115000</div>
-                        <div class="product-price">Total Items: 3</div>
-                        <div class="product-price">Date: 30-12-2018</div>
-                        <div class="product-price">Attendant: John Quest</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="record-items-section"></div>
     </div>
     <div class="my-side-bar">
         <div class="categories-section sidebar-option">
@@ -132,5 +43,6 @@
         &copy; Copyright 2018 Store Manager
     </footer>
 </div>
+<script src="js/app.js"></script>
 </body>
 </html>

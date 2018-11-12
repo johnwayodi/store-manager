@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>StoreManager - Attendants</title>
+    <title>StoreManager - Categories</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body onload="getAllAttendants()">
+<body onload="getAllCategories()">
 <!--# NAVIGATION BAR-->
 <div class="nav-container">
     <div class="nav-logo"><img src="images/shopping-list.png"></div>
@@ -16,27 +17,39 @@
         <button type="button" value="Submit" onclick="logoutUser()">LOG OUT</button>
     </div>
 </div>
-
 <!--# MAIN SECTION-->
 <div class="main-section">
-    <div class="records-section">
-        <div class="dash-header">Store Attendants</div>
+    <div class="products-section">
+        <div class="dash-header">Categories</div>
         <div class="search-bar-section">
             <div class="my-search-input">
-                <input type="text" placeholder="Search Store Attendant By Name..">
+                <input type="text" placeholder="Search For Category By Name..">
             </div>
             <div>
                 <button type="submit" class="my-search-button">Search</button>
             </div>
         </div>
-        <div class="record-items-section" id="my-users-list"></div>
+        <div class="all-products-section" id="categories-list">
+        </div>
     </div>
     <div class="my-side-bar">
-        <div class="categories-section sidebar-option" onclick="location.href='dashboard-admin.html';">
-                <div>Back to Dashboard</div>
+        <div class="categories-section">
+            <div class="categories-title">Categories</div>
+            <div class="category-details">
+                <div class="category-items">Electronics</div>
+                <div class="category-items">Furniture</div>
+                <div class="category-items">Fashion</div>
+                <div class="category-items">Gaming</div>
+                <div class="category-items">Office</div>
+                <div class="category-items">Home Stuff</div>
+            </div>
         </div>
-        <div class="categories-section sidebar-option" onclick="location.href='new-attendant.html';">
-            <div>Create New Attendant</div>
+        <div class="categories-section sidebar-option" onclick="location.href='dashboard-admin.html';">
+            <div>Back to Dashboard</div>
+        </div>
+
+        <div class="categories-section sidebar-option" onclick="location.href='add-category.html';">
+            <div>Create New Category</div>
         </div>
     </div>
 </div>

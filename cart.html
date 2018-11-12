@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="loadShoppingCart()">
 <!--# NAVIGATION BAR-->
 <div class="nav-container">
     <div class="nav-logo"><img src="images/shopping-list.png"></div>
@@ -17,74 +17,18 @@
         <!--<div class="nav-menu-item">Profile</div>-->
         <!--<div class="nav-menu-item">Records</div>-->
         <button type="submit" onclick="location.href='attendant-profile.html';">PROFILE</button>
-        <button type="submit" onclick="location.href='index.html';">LOG OUT</button>
+        <button type="button" value="Submit" onclick="logoutUser()">LOG OUT</button>
     </div>
 </div>
 
 <!--# MAIN SECTION-->
 <div class="main-section">
     <div class="cart-section">
-        <div class="shopping-cart-section">
-            <div class="sc-heading">SHOPPING CART</div>
-            <div class="sc-item">
-                <div class="item-row">
-                    <div class="item-label">Product Name:</div>
-                    <div class="item-value">Ideos</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-label">Unit Price:</div>
-                    <div class="item-value">5000</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-label">Quantity:</div>
-                    <div class="item-value">2</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-remove">Remove</div>
-                </div>
-            </div>
-            <div class="sc-item">
-                <div class="item-row">
-                    <div class="item-label">Product Name:</div>
-                    <div class="item-value">Nokia C113</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-label">Unit Price:</div>
-                    <div class="item-value">100000</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-label">Quantity:</div>
-                    <div class="item-value">1</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-remove">Remove</div>
-                </div>
-            </div>
-            <div class="sc-item">
-                <div class="item-row">
-                    <div class="item-label">Product Name:</div>
-                    <div class="item-value">Table</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-label">Unit Price:</div>
-                    <div class="item-value">1000</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-label">Quantity:</div>
-                    <div class="item-value">5</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-remove">Remove</div>
-                </div>
-            </div>
-            <div class="sc-item sc-total">
-                <div class="item-row">
-                    <div class="item-label cart-final-label">Total:</div>
-                    <div class="item-value cart-final-value">115000</div>
-                </div>
-            </div>
-            <div class="container">
-                <button type="submit" class="cart-checkout">Create Sale Record</button>
+        <div class="shopping-cart-section" id="s-cart-section">
+            <div class="sc-heading" id="shopping-cart-title">SHOPPING CART</div>
+            <div class="container" id="sale-button-section">
+                <button type="button" value="Submit" class="cart-checkout"
+                        id="s-button" onclick="createSale()">Create Sale Record</button>
             </div>
         </div>
     </div>
@@ -93,15 +37,14 @@
         <div class="categories-section sidebar-option" onclick="location.href='dashboard-attendant.html';">
             <div>Back to Dashboard</div>
         </div>
-
         <div class="categories-section sidebar-option" onclick="location.href='products.html';">
             <div>Back to Products</div>
         </div>
-
         <div class="categories-section sidebar-option">
             <div>Clear Shopping Cart</div>
         </div>
     </div>
+    <div id="snackbar"></div>
 </div>
 <!--#FOOTER-->
 <div class="footer-content login-section footer-section">
@@ -109,5 +52,6 @@
         &copy; Copyright 2018 Store Manager
     </footer>
 </div>
+<script src="js/app.js"></script>
 </body>
 </html>

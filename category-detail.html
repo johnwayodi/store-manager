@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>StoreManager - New Attendant</title>
+    <title>StoreManager - Category Details</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="getOneCategory()">
 <!--# NAVIGATION BAR-->
 <div class="nav-container">
     <div class="nav-logo"><img src="images/shopping-list.png"></div>
@@ -21,23 +21,19 @@
 <!--# MAIN SECTION-->
 <div class="main-section login-section product-section">
     <div class="form-section">
-        <div class="product-section-header">Create Store Attendant</div>
+        <div class="product-section-header">Update or Delete Category</div>
         <div class="product-form">
-            <form action="#" id="form2">
+            <form action="#" id="p-details-form">
                 <div class="container">
-                    <label for="attendant_name" class="my-form-extra">Attendant Username:</label>
-                    <input type="text" id="attendant_name">
+                    <label for="c_name" class="my-form-extra">Category Name:</label>
+                    <input type="text" value="Playstation 4" id="c_name">
 
-                    <label for="attendant_pass" class="my-form-extra">Attendant Password:</label>
-                    <input type="password" id="attendant_pass">
-
-                    <label for="attendant_pass-conf" class="my-form-extra">Confirm Password:</label>
-                    <input type="password" id="attendant_pass-conf">
-
+                    <label for="c_desc" class="my-form-extra">Category Description:</label>
+                    <input type="text" value="Playstation 4" id="c_desc">
 
                     <div class="product-options">
-                        <button type="button" value="Submit"
-                                onclick="addAttendant()">Create Attendant</button>
+                        <button type="button" value="Submit" onclick="updateCategory()">Update</button>
+                        <button type="button" value="Submit" onclick="deleteCategory()">Delete</button>
                     </div>
                 </div>
             </form>
@@ -49,8 +45,8 @@
             <div>Back to Dashboard</div>
         </div>
 
-        <div class="categories-section sidebar-option" onclick="location.href='all-attendants.html';">
-            <div>Back to Attendants</div>
+        <div class="categories-section sidebar-option" onclick="location.href='categories-admin.html';">
+            <div>Back to Categories</div>
         </div>
     </div>
     <div id="snackbar"></div>

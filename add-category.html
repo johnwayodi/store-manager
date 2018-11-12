@@ -21,29 +21,17 @@
 <!--# MAIN SECTION-->
 <div class="main-section login-section product-section">
     <div class="form-section">
-        <div class="product-section-header">Create New Product</div>
+        <div class="product-section-header">Create New Category</div>
         <div class="product-form" id="add-product-form">
-            <form action="#" id="product-form">
+            <form action="#" id="category-form">
                 <div class="container">
-                    <label for="p_name" class="my-form-extra">Product Name:</label>
-                    <input type="text" placeholder="Enter Name of Product" id="p_name">
+                    <label for="c_name" class="my-form-extra">Category Name:</label>
+                    <input type="text" placeholder="Enter Name of Category" id="c_name">
 
-                    <label for="p_desc" class="my-form-extra">Product Description:</label>
-                    <input type="text" placeholder="Enter Product Description" id="p_desc">
-
-                    <label for="p_price" class="my-form-extra">Price Per Unit:</label>
-                    <input type="text"  placeholder="Enter Price for Product" id="p_price">
-
-                    <label for="p_stock" class="my-form-extra">Stock Available:</label>
-                    <input type="text" placeholder="Enter Stock Quantity for Product" id="p_stock">
-
-                    <label for="p_stock_min" class="my-form-extra">Stock Minimum Allowed:</label>
-                    <input type="text" placeholder="Enter Minimum Quantity allowed" id="p_stock_min">
-
-                    <label for="p_category" class="my-form-extra">Product Category:</label>
-                    <input type="text" placeholder="Enter Category" id="p_category">
+                    <label for="c_desc" class="my-form-extra">Category Description:</label>
+                    <input type="text" placeholder="Enter Category Description" id="c_desc">
                     <div class="product-options">
-                        <button type="button" value="Submit" onclick="addProduct()">Create Product</button>
+                        <button type="button" value="Submit" onclick="addCategory()">Create Category</button>
                     </div>
                 </div>
             </form>
@@ -54,8 +42,8 @@
             <div>Back to Dashboard</div>
         </div>
 
-        <div class="categories-section sidebar-option" onclick="location.href='products-admin.html';">
-            <div>Back to Products</div>
+        <div class="categories-section sidebar-option" onclick="location.href='categories-admin.html';">
+            <div>Back to Categories</div>
         </div>
     </div>
     <div id="snackbar"></div>
