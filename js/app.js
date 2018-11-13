@@ -841,7 +841,7 @@ function createSaleDetailItem(saleRecordItem) {
 
 function logoutUser() {
     fetch(url + '/auth/logout', {
-        method: 'post',
+        method: 'delete',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem('authtoken')
         }
@@ -864,7 +864,6 @@ function logoutUser() {
         }
         else {
             showSnackBar(data['message'], "error");
-            document.getElementById("login-button").disabled = false;
         }
     }).catch(err => console.log(err))
 }
