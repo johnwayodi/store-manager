@@ -383,12 +383,6 @@ fieldset {
 }
 
 /*RECORDS SECTION*/
-.records-section {
-    flex-direction: column;
-    flex: 3;
-    justify-content: center;
-}
-
 .record-items-section {
     flex-direction: column;
 }
