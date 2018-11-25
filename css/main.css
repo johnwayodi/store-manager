@@ -578,6 +578,13 @@ td {
         height: 40px;
     }
 
+    .product-section-header{
+        justify-content: center;
+        font-size: 25px;
+        padding-top: 10px;
+        height: 40px;
+    }
+
     .dash-components {
         flex-direction: column;
 
@@ -588,9 +595,11 @@ td {
         margin-right: auto;
     }
 
-    .my-form {
-        max-width: 250px;
+    .my-form, .product-form {
+        max-width: 280px;
     }
+
+
 
     .all-products-section {
         flex-direction: column;
