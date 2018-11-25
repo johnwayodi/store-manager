@@ -597,11 +597,12 @@ td {
         justify-content: center;
     }
 
-    .product-item {
+    .product-item, .record-item {
         margin-left: auto;
         margin-right: auto;
         min-width: 80%;
     }
+
 
 }
 
