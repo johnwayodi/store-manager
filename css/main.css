@@ -554,6 +554,14 @@ td {
 
     }
 
+    .nav-logo{
+        display: none;
+    }
+
+    .nav-logo-text {
+        text-align: center;
+    }
+
     .nav-menu{
         flex-direction: column;
         justify-content: left;
@@ -584,9 +592,16 @@ td {
         max-width: 250px;
     }
 
-    /*.product-form{*/
-        /*max-width: 300px;*/
-    /*}*/
+    .all-products-section {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .product-item {
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 80%;
+    }
 
 }
 
