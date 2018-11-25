@@ -13,13 +13,14 @@
     <div class="nav-logo"><img src="images/shopping-list.png"></div>
     <div class="nav-logo-text">STORE MANAGER</div>
     <div class="nav-menu">
+        <button type="button" value="Submit" onclick="location.href='dashboard-admin.html';">DASHBOARD</button>
         <button type="button" value="Submit" onclick="logoutUser()">LOG OUT</button>
     </div>
 </div>
 
 <!--# MAIN SECTION-->
 <div class="main-section">
-    <div class="records-section">
+    <div class="products-section">
         <div class="dash-header">Sale Records</div>
         <div class="search-bar-section">
             <div class="my-search-input">
@@ -29,12 +30,7 @@
                 <button type="submit" class="my-search-button">Filter</button>
             </div>
         </div>
-        <div class="record-items-section"></div>
-    </div>
-    <div class="my-side-bar">
-        <div class="categories-section sidebar-option">
-            <div onclick="location.href='dashboard-admin.html';">Back to Dashboard</div>
-        </div>
+        <div class="record-items-section" id="sales-list"></div>
     </div>
     <div id="snackbar"></div>
 </div>
